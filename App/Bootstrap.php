@@ -12,12 +12,12 @@ class Bootstrap
        */
       private $configuration;
 
-      const DEVELOPER_MODE = true;
-      const SERVER_MODE = false;
+      const DEVELOPMENT_MODE = true;
+      const PRODUCTION_MODE = false;
 
       /**
        * Run configuration a routing
-       * @param bool App status (DEVELOPER_MODE x SERVER_MODE)
+       * @param bool App status (DEVELOPMENT_MODE x PRODUCTION_MODE)
        * @access public
        * @return void
        */
