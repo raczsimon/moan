@@ -35,4 +35,4 @@ spl_autoload_register('autoloading');
 
 // Initialization of the application
 $bootstrap = new App\Bootstrap();
-$bootstrap->run(App\Bootstrap::DEVELOPER_MODE);
+$bootstrap->run(App\Bootstrap::DEVELOPMENT_MODE);
