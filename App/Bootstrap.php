@@ -1,5 +1,7 @@
 <?php
 namespace App;
+use Moan\Http;
+use Moan\Architecture;
 
 /**
  * Everything is happening here
@@ -21,20 +23,10 @@ class Bootstrap
        * @access public
        * @return void
        */
-      public function run ($type)
+      public function run (bool $type)
       {
-            $this->configuration = $this->configuration ($type);
+            $this->configuration = (new Architecture\Config())->get();
             $this->routing();
-      }
-
-      /**
-       * Get configuration array
-       * @access private
-       * @return array[string => string] Configuration array
-       */
-      private function configuration ()
-      {
-            return require('App/Config/General.php');
       }
 
       /**
@@ -44,6 +36,17 @@ class Bootstrap
        */
       private function routing()
       {
-            print_r($this->configuration);
+            /**
+             * Calling default Router, you can set your own Router in
+             * configuration "default_router"
+             */
+            $routerName = $this->configuration['default_router'];
+
+            $router = new $routerName();
+
+            $router->run(
+                  $this->configuration['routes'],
+                  $this->configuration['ignore']
+            );
       }
 }

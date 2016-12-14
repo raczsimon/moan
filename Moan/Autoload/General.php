@@ -16,7 +16,7 @@ class General implements IAutoload
        * @param string Class name which we use to load the class file
        * @return void
        */
-      public function __construct ($classname)
+      public function __construct (string $classname)
       {
             $this->classname = $classname;
       }
