@@ -1,5 +1,6 @@
 <?php
 use Moan\Http\Route;
+use Moan\Architecture\Config;
 
 $config = [
       'default_router' => 'Moan\Http\Router', // A default Router
@@ -13,11 +14,7 @@ $config = [
             'host' => 'localhost',
             'username' => 'root',
             'password' => ''
-      ],
-
-      'services' => [ // Set services for DI container
-            'config' => 'Moan\Architecture\Config'
-      ],
+      ]
 ];
 
 return $config;

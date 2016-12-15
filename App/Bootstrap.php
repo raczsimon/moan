@@ -4,6 +4,7 @@ namespace App;
 use Moan\Http;
 use Moan\Architecture;
 use Moan\Utils\StringUtils;
+use Moan\Exception;
 
 /**
  * Everything is happening here
@@ -11,10 +12,16 @@ use Moan\Utils\StringUtils;
 class Bootstrap
 {
       /**
-       * @var array[string => string] Configuration array
+       * @var array Configuration array
        * @access private
        */
       private $configuration;
+
+      /**
+       * @var array Services array
+       * @access private
+       */
+      private $services;
 
       const DEVELOPMENT_MODE = true;
       const PRODUCTION_MODE = false;
@@ -28,6 +35,7 @@ class Bootstrap
       public function run (bool $type)
       {
             $this->configuration = (new Architecture\Config())->get();
+            $this->services = require_once('App/Config/Services.php');
             $this->routing();
       }
 
@@ -67,6 +75,12 @@ class Bootstrap
       private function callController(string $controller, string $view)
       {
             $controller = new $controller();
+
+            // Push services
+            $diContainer = $this->diContainerFactory();
+            $diContainer->check($controller);
+
+
             $render = 'render' . StringUtils::firstLetterToCapital($view);
             $action = 'action' . StringUtils::firstLetterToCapital($view);
 
@@ -78,5 +92,21 @@ class Bootstrap
                   $controller->$render();
             if (method_exists($controller, 'end'))
                   $controller->end();
+      }
+
+      /**
+       * Make an instance of DIContainer
+       * @access private
+       * @return Moan\Architecture\DIContainer DIContainer instance
+       */
+      private function diContainerFactory()
+      {
+            $diContainer = new Architecture\DIContainer();
+
+            foreach ($this->services as $key => $service) {
+                  $diContainer->addDependency($key, $service);
+            }
+
+            return $diContainer;
       }
 }
