@@ -7,7 +7,22 @@ namespace Moan\Http;
 interface IRouter
 {
       /**
-       * The algorithm of router
+       * The algorithm of the router
        */
       public function run (array $routes, int $ignore);
+
+      /**
+       * Get the controller name
+       */
+      public function getController ();
+
+      /**
+       * Get the view name
+       */
+      public function getView ();
+
+      /**
+       * Get the route
+       */
+      public function getRoute ();
 }

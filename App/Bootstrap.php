@@ -1,7 +1,9 @@
 <?php
 namespace App;
+
 use Moan\Http;
 use Moan\Architecture;
+use Moan\Utils\StringUtils;
 
 /**
  * Everything is happening here
@@ -48,5 +50,33 @@ class Bootstrap
                   $this->configuration['routes'],
                   $this->configuration['ignore']
             );
+
+            $this->callController(
+                  'App\\Controller\\' . $router->getController(),
+                  $router->getView()
+            );
+      }
+
+      /**
+       * Calls a controller, it's methods and pass the dependencies
+       * @param string Controller name
+       * @param string View name
+       * @access private
+       * @return void
+       */
+      private function callController(string $controller, string $view)
+      {
+            $controller = new $controller();
+            $render = 'render' . StringUtils::firstLetterToCapital($view);
+            $action = 'action' . StringUtils::firstLetterToCapital($view);
+
+            if (method_exists($controller, 'begin'))
+                  $controller->begin();
+            if (method_exists($controller, $action))
+                  $controller->$action();
+            if (method_exists($controller, $render))
+                  $controller->$render();
+            if (method_exists($controller, 'end'))
+                  $controller->end();
       }
 }

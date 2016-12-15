@@ -36,7 +36,7 @@ class Route
       public function getPattern()
       {
             $url = preg_replace('/\{([a-zA-Z0-9]+)\}/', '(.*)', $this->url, -1);
-            return '/' . str_replace('/', '\/', $url) . '/';
+            return '/^' . str_replace('/', '\/', $url) . '$/';
       }
 
       /** /// GETTERS /// */
