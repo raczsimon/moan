@@ -46,3 +46,13 @@ $config = array_merge($config, $my_config);
 
 return $config;
 ```
+
+## Adding services for Dependency Injection
+
+*File: App/Config/Services.php*
+
+```
+return [
+      "name_of_your_service" => new InstanceOfYourService()
+];
+```
