@@ -51,7 +51,7 @@ class Router implements IRouter
        * @access public
        * @return void
        */
-      public function run (array $routes, int $ignore)
+      public function run ($routes, $ignore)
       {
             $this->uri = URL::getUri($ignore);
 
@@ -64,7 +64,7 @@ class Router implements IRouter
             }
 
             if (empty($this->route))
-                  throw new Exception\RouteNotFoundException("This route was not not found. Perhaps you forgot to add it in the configuration file.");
+                  throw new RouteNotFoundException("This route was not not found. Perhaps you forgot to add it in the configuration file.");
 
             $this->setVariables();
       }

@@ -1,0 +1,22 @@
+{
+  "name": "mheinzerling/stringutils",
+  "description": "StringUtils class is similar to Apache Commons StringUtils for Java. It will be extended incrementally.",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Martin Heinzerling",
+      "email": "webmaster@mheinzerling.de"
+    }
+  ],
+  "require": {
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.2.*"
+  },
+  "autoload": {
+    "psr-0": {
+      "mheinzerling": "src/"
+    }
+  }
+}

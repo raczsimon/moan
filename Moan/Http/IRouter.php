@@ -9,7 +9,7 @@ interface IRouter
       /**
        * The algorithm of the router
        */
-      public function run (array $routes, int $ignore);
+      public function run ($routes, $ignore);
 
       /**
        * Get the controller name

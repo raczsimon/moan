@@ -21,7 +21,7 @@ class URL
        * @access public
        * @return string URI
        */
-      public static function getUri(int $ignore = 0)
+      public static function getUri($ignore = 0)
       {
             $uri = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
 

@@ -22,7 +22,7 @@ class Route
        * @access public
        * @return void
        */
-      public function __construct(string $url, array $path)
+      public function __construct($url, $path)
       {
             $this->url = $url;
             $this->path = $path;

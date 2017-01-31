@@ -3,8 +3,8 @@ namespace App;
 
 use Moan\Http;
 use Moan\Architecture;
-use Moan\Utils\StringUtils;
 use Moan\Exception;
+use mheinzerling\commons\StringUtils;
 
 /**
  * Everything is happening here
@@ -32,7 +32,7 @@ class Bootstrap
        * @access public
        * @return void
        */
-      public function run (bool $type)
+      public function run ($type)
       {
             $this->configuration = (new Architecture\Config())->get();
             $this->services = require_once('App/Config/Services.php');
@@ -72,7 +72,7 @@ class Bootstrap
        * @access private
        * @return void
        */
-      private function callController(string $controller, string $view)
+      private function callController($controller, $view)
       {
             $controller = new $controller();
 
@@ -81,17 +81,25 @@ class Bootstrap
             $diContainer->check($controller);
 
 
-            $render = 'render' . StringUtils::firstLetterToCapital($view);
-            $action = 'action' . StringUtils::firstLetterToCapital($view);
+            $render = 'render' . StringUtils::firstCharToUpper($view);
+            $action = 'action' . StringUtils::firstCharToUpper($view);
 
             if (method_exists($controller, 'begin'))
                   $controller->begin();
             if (method_exists($controller, $action))
                   $controller->$action();
-            if (method_exists($controller, $render))
+            if (method_exists($controller, $render)) {
                   $controller->$render();
+
+                  extract((array)$controller->template);
+
+                  require('App/Controller/templates/' .
+                        str_replace('App\\Controller\\', '', get_class($controller))
+                  . '/' . $view . '.phtml'
+                  );
+            }
             if (method_exists($controller, 'end'))
-                  $controller->end();
+               $controller->end();
       }
 
       /**

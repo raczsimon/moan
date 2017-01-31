@@ -1,0 +1,109 @@
+[
+    {
+        "name": "dibi/dibi",
+        "version": "v3.0.7",
+        "version_normalized": "3.0.7.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/dg/dibi.git",
+            "reference": "22e6ea4e404504bb23a7075ed54c64e5d9bfb0e2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/dg/dibi/zipball/22e6ea4e404504bb23a7075ed54c64e5d9bfb0e2",
+            "reference": "22e6ea4e404504bb23a7075ed54c64e5d9bfb0e2",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.4.4"
+        },
+        "replace": {
+            "dg/dibi": "*"
+        },
+        "require-dev": {
+            "nette/tester": "~1.7",
+            "tracy/tracy": "~2.2"
+        },
+        "time": "2017-01-04T14:18:17+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "src/"
+            ],
+            "files": [
+                "src/loader.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause",
+            "GPL-2.0",
+            "GPL-3.0"
+        ],
+        "authors": [
+            {
+                "name": "David Grudl",
+                "homepage": "https://davidgrudl.com"
+            }
+        ],
+        "description": "Dibi is Database Abstraction Library for PHP",
+        "homepage": "https://dibiphp.com",
+        "keywords": [
+            "access",
+            "database",
+            "dbal",
+            "mssql",
+            "mysql",
+            "odbc",
+            "oracle",
+            "pdo",
+            "postgresql",
+            "sqlite",
+            "sqlsrv"
+        ]
+    },
+    {
+        "name": "mheinzerling/stringutils",
+        "version": "1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/mheinzerling/php-stringutils.git",
+            "reference": "b67390811675ad573ba1ebc266ecc4d90d5e6148"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/mheinzerling/php-stringutils/zipball/b67390811675ad573ba1ebc266ecc4d90d5e6148",
+            "reference": "b67390811675ad573ba1ebc266ecc4d90d5e6148",
+            "shasum": ""
+        },
+        "require-dev": {
+            "phpunit/phpunit": "4.2.*"
+        },
+        "time": "2016-10-31T13:34:11+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "mheinzerling": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Martin Heinzerling",
+                "email": "webmaster@mheinzerling.de"
+            }
+        ],
+        "description": "StringUtils class is similar to Apache Commons StringUtils for Java. It will be extended incrementally."
+    }
+]

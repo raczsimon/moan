@@ -1,0 +1,6 @@
+{
+    "require": {
+        "dibi/dibi": "^3.0",
+        "mheinzerling/stringutils": "^1.0"
+    }
+}

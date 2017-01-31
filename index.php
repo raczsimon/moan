@@ -19,6 +19,7 @@ require('Moan/Autoload/IAutoload.php');
  * the interface Moan\Autoload\IAutoload.
  */
 require('Moan/Autoload/General.php');
+require ('vendor/autoload.php');
 // require('App\Other\Autoload\YourOwnAutoloadClass.php');
 
 function autoloading ($classname)

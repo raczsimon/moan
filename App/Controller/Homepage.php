@@ -1,10 +1,11 @@
 <?php
 namespace App\Controller;
+use App\Component;
 
-class Homepage
+class Homepage extends MasterController
 {
-      public function renderDefault()
-      {
-            echo "Hello World!";
-      }
+    public function renderDefault()
+    {
+
+    }
 }

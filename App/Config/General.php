@@ -4,7 +4,7 @@ use Moan\Architecture\Config;
 
 $config = [
       'default_router' => 'Moan\Http\Router', // A default Router
-      'ignore' => 1, // How many requests do you want to ignore? (user(1)/profile(2)/19218(3))
+      'ignore' => 2, // How many requests do you want to ignore? (user(1)/profile(2)/19218(3))
 
       'routes' => [ // Set Routes
             new Route('', ['Homepage', 'default'])

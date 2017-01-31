@@ -10,7 +10,7 @@ interface IAutoload
        * Every Autoload class should implement a constructor with an
        * argument (class name)
        */
-      public function __construct(string $classname);
+      public function __construct($classname);
 
       /**
        * Every Autoload class should implements a method run(), which is an
